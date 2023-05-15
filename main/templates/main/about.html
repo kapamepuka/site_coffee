@@ -1,10 +1,152 @@
-{% extends 'main/base.html' %}
 
-{% block title %}
-Страница о нас
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href=" {% static 'main/css/about.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@900&display=swap" rel="stylesheet">
+    <title>О НАС</title>
+</head>
 
-{% block content %}
-    <h1>Страница о нас</h1>
-    <p>Просто текст</p>
-{% endblock %}
+<body>
+
+
+<div class='header'>
+    <div class="container">
+        <div class='header-line'>
+            <div class='header-logo'>
+                <img src="{% static 'main/img/logo2.png' %}">
+            </div>
+
+            <div class="nav">
+                <a class='nav-item' href="/">ГЛАВНАЯ</a>
+                <a class='nav-item' href="menu">МЕНЮ</a>
+                <a class='nav-item' href="about">О НАС</a>
+
+            </div>
+
+            <div class="cart-block">
+                <div class="cart">
+                    <a href="#">
+                        <img class='cart-img' src="{% static 'main/img/cart2.png' %}">
+                    </a>
+                </div>
+
+                <div class="btncart">
+                    <a class='cart-item' href="#">КОРЗИНА</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards">
+
+            <div class="cards-holder">
+
+                <div class="card">
+                    <div class="card-title">
+                        История
+                    </div>
+                    <div class="card-desc">
+                        Мы - небольшая кофейня,
+                        которая была основана в 2015 году в центре города.
+                        Наша история началась с простой идеи - создать место,
+                        где люди могут наслаждаться высококачественным кофе и
+                        проводить время в приятной атмосфере. С тех пор мы стали
+                        любимым местом для многих жителей города и туристов,
+                        которые ценят нашу качественную продукцию и дружелюбный сервис.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        Миссия и ценности
+                    </div>
+                    <div class="card-desc">
+                        Наша миссия заключается в том, чтобы создавать уютное и
+                        гостеприимное место, где люди могут наслаждаться отличным
+                        кофе, проводить время с друзьями или работать.
+                        Мы стремимся предоставлять своим клиентам
+                        высококачественную продукцию и удобный сервис.
+                        Наша команда ценит качество и старается сделать все
+                        возможное, чтобы каждый клиент остался довольным и
+                        вернулся к нам вновь.
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="cards-holder">
+
+                <div class="card">
+                    <div class="card-title">
+                        Наша команда
+                    </div>
+                    <div class="card-desc">
+                        Мы гордимся нашей командой, которая состоит из
+                        профессиональных бариста и опытных сотрудников,
+                        которые умеют создавать уютную атмосферу и
+                        внимательно относятся к каждому клиенту.
+                        Наша команда стремится постоянно улучшать
+                        свои навыки и знания, чтобы предоставлять
+                        нашим клиентам наилучший сервис.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">
+                        Наши кофейные напитки
+                    </div>
+                    <div class="card-desc">
+                        В нашем меню вы найдете широкий выбор
+                        кофейных напитков, которые приготовлены
+                        из свежесмолотых зерен высокого качества.
+                        Мы готовим кофе в различных вариантах -
+                        от эспрессо и капучино до латте и американо.
+                        Мы также предлагаем чаи, горячий шоколад и
+                        другие напитки
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<footer>
+    <nav-footer>
+        <a class='nav-footer-item' href="#">ФРАНШИЗА</a>
+        <a class='nav-footer-item' href="#">МЕРЧ</a>
+        <a class='nav-footer-item' href="#">О НАС</a>
+    </nav-footer>
+
+    <div class="logo">
+        <a href="#"><img src="logo2.png" alt=""></a>
+    </div>
+    <div class="social">
+        <a class="social-logo" href="#"><img src="{% static 'main/img/email.png' %}" alt=""><img</a>
+        <a class="social-logo" href="#"><img src="{% static 'main/img/pinterest.png' %}" alt=""><img</a>
+        <a class="social-logo" href="#"><img src="{% static 'main/img/fb.png' %}" alt=""><img</a>
+        <a class="social-logo" href="#"><img src="{% static 'main/img/instagram.png' %}" alt=""><img</a>
+
+    </div>
+</footer>
+</body>
+</html>
+
+
+</body>
+</html>

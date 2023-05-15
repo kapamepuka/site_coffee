@@ -30,7 +30,7 @@
 
             <div class="nav">
                 <a class='nav-item' href="/">ГЛАВНАЯ</a>
-                <a class='nav-item' href="menu">МЕНЮ</a>
+                <a class='nav-item' href="#">МЕНЮ</a>
                 <a class='nav-item' href="about">О НАС</a>
 
             </div>
@@ -60,7 +60,7 @@
                     Наша кофейня – это место, где вы можете <br>расслабиться, встретиться с друзьями или поработать в <br>уютной обстановке. Мы предлагаем своим гостям <br>уютные зоны отдыха, где можно насладиться <br>вкусом кофе и приятной музыкой.
                 </div>
                 <div class="headerd-bth">
-                    <a href="menu" class="header-button">СДЕЛАТЬ ЗАКАЗ</a>
+                    <a href="#" class="header-button">СДЕЛАТЬ ЗАКАЗ</a>
                 </div>
             </div>
 
@@ -68,36 +68,22 @@
         </div>
         <div class="cards">
 
-            <div class="cards-holder">
+           СПИСОК КОФЕ ТЕСТ
+            <table>
+                <tr>
+                    <th>Заголовок</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                </tr>
+            {%for m in menu%}
+            <tr>
+                <td>{{m.title}}</td>
+                <td>{{m.description}}</td>
+                <td>{{m.price}}</td>
+            </tr>
 
-                <div class="card">
-
-                    <div class="card-title">
-                        ПЕКАРНЯ
-                    </div>
-
-                    <div class="card-desc">
-                        Можно перекусить свежую выпечку,
-                        вкусные необычные десерты и
-                        выпить фирменный напиток
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        КОФЕЙНЫЙ ДВОРИК
-                    </div>
-
-                    <div class="card-desc">
-                        Адрес: ул.Пушкина д. Калатушкина
-                    </div>
-
-                </div>
-
-            </div>
-
+            {%endfor%}
+            </table>
         </div>
     </div>
 
