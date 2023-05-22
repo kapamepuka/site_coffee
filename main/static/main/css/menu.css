@@ -74,10 +74,11 @@ body {
 
 
 
-.cards-holder{
+.cards{
     display: flex;
-    justify-content: center;
-    margin-left: 600px;
+    flex-wrap: wrap;
+    width: 1200px;
+    margin-left: 500px;
 
 }
 
