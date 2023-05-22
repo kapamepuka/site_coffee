@@ -4,15 +4,17 @@ body {
     font-family: 'Open Sans', sans-serif;
 
 }
-
+button {
+    border-width: 0;
+}
 .container {
     margin: 0px 300px;
 
 }
 
 .header {
-    background-image: url(../img/bg.png);
-    height: 100vh;
+    background-color: #221C1A;
+    width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -26,7 +28,13 @@ body {
     align-items: center;
     justify-content: space-around;
 }
-
+.content {
+    background-image: url(../img/bg.png);
+    min-height: 910px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 60px;
+}
 .nav-item {
     color: #B8860B;
     text-decoration: none;
@@ -77,17 +85,17 @@ body {
 .cards{
     display: flex;
     flex-wrap: wrap;
-    width: 1200px;
-    margin-left: 500px;
+    width: 800px;
+    margin-left: 900px;
 
 }
 
 .card{
     background-color: #201c1a;
-    width: 350px;
+    width: 270px;
     margin-right: 60px;
     margin-top: 60px;
-
+    padding: 15px;
     border: 1px solid #201c1a;
      box-shadow:
        0 0 0 1px #B8860B,
@@ -104,22 +112,11 @@ body {
     margin-top: 10px;
 }
 
-.card-desc{
-    color: #B8860B;
-    font-family: 'Lexend Deca', sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    text-align: justify;
-    margin-bottom: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 
 footer{
-    background-image: url(../img/bg-basement.png);
+    background-color: #221C1A;
     padding: 50px 0px;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
 }
 
@@ -161,13 +158,15 @@ nav-footer a:hover{
 .card-img {
     display: flex;
     justify-content: center;
-    margin-left: 25px;
+    margin: 0px 0px 20px 25px;
     height: 200px;
 }
 
 
 .munu{
     display: flex;
+    flex-direction: column;
+    row-gap: 10px;
     justify-content: center;
 }
 .munu-bth{
@@ -178,7 +177,7 @@ nav-footer a:hover{
     padding: 14px 28px;
     border-radius: 50px;
     font-size: 15px;
-    font-weight: 200;
+    font-weight: 500;
 
     position:relative;
     top:-20px;
