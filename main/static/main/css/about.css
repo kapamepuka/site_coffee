@@ -4,7 +4,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 
 }
-
 .container {
     margin: 0px 300px;
 
@@ -72,12 +71,22 @@ body {
 }
 
 
+.cards{
+    background-image: url(../img/bg.png);
 
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 60px;
+}
 
 .cards-holder{
     display: flex;
     justify-content: center;
     margin-left: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin-left: 900px;
 
 }
 
