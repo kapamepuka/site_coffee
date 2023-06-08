@@ -3,7 +3,8 @@ from django.urls import path, include
 from menu.views import MenuView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('main.urls')),
-    path('menu/', MenuView.as_view()),
+    path("admin/", admin.site.urls),
+    path("", include("main.urls")),
+    path("menu/", MenuView.as_view()),
+    path("cart/", include("cart.urls")),
 ]

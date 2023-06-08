@@ -1,10 +1,13 @@
-from django.shortcuts import render
-
 # Create your views here.
-from django.views.generic import TemplateView
 from cart.cart import Cart
+from django.http.response import JsonResponse
+from menu.models import Product
 
-class MenuView(TemplateView):
-    template_name = 'menu.html'
 
-    def get(self, request):
+def add_to_cart(request, product_id: int):
+    print(product_id)
+    cart = Cart(request)
+    product = Product.objects.get(pk=product_id)
+    print(product)
+    data = cart.add(product_id, product.name, price=product.price)
+    return JsonResponse(data)
