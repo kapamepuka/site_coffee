@@ -99,6 +99,13 @@
             </div> -->
           {% for item in cart %}
           <div class="modal_content_product">
+            <div class="modal_content_product_wrap">
+              <img
+                src="{{ item.photo_url }}"
+                alt=""
+                class="modal_content_product_wrap_img"
+              />
+            </div>
             <div class="modal_content_product_descr">
               <b>{{item.name}}</b>
               <br />
