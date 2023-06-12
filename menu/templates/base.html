@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href=" {% static 'base/css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'menu/css/cart-styles.css' %}" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,6 +20,11 @@
       href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@900&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
     {% block head %} {% endblock%}
     <title>МЕНЮ</title>
   </head>
@@ -76,5 +82,84 @@
         >
       </div>
     </footer>
+    <div class="modal">
+      <div class="modal_container">
+        <div class="modal_head">
+          <button class="modal_btn">×</button>
+          <h5 class="modal_head_title">
+            <span class="fa fa-shopping-basket fa-fw"></span>
+            &nbsp;&nbsp; Корзина покупок
+          </h5>
+        </div>
+
+        <div class="modal_content">
+          <!-- <div class="modal_content_alert">
+              <button class="modal_btn">×</button>
+              <i class="fa fa-info-circle"></i>
+              &nbsp;&nbsp;Товар Проставки 7-297 добавлен в вашу корзину!
+            </div> -->
+          {% for item in cart %}
+          <div class="modal_content_product">
+            <div class="modal_content_product_descr">
+              <b>{{item.name}}</b>
+              <br />
+            </div>
+            <div class="modal_content_product_menu">
+              <button
+                class="modal_content_product_menu_btn"
+                onclick="on_decrement(this)"
+              >
+                -
+              </button>
+              <div class="modal_content_product_menu_item">
+                {{item.quantity}}
+              </div>
+              <button
+                class="modal_content_product_menu_btn"
+                onclick="on_increment(this)"
+              >
+                +
+              </button>
+            </div>
+            <p class="modal_content_product_price">1000 ₽</p>
+            <input id="spacer_id" type="hidden" name="id" value="{{item.id}}" />
+            <input
+              id="spacer_price"
+              type="hidden"
+              name="price"
+              value="{{item.price}}"
+            />
+            <button
+              class="modal_content_product_backet"
+              onclick="on_basket(this)"
+            >
+              <img
+                src="{% static 'base/img/trash.svg' %}"
+                alt="trash"
+                class="modal_content_product_backet_img"
+              />
+            </button>
+          </div>
+          {% endfor %}
+          <div class="modal_content_product_text">
+            <span class="modal_content_product_text_link"
+              >В корзине <b>{{cart|length}}</b> товаров
+            </span>
+          </div>
+          <div class="modal_content_product_text">
+            <span class="modal_content_product_text_link">Корзина пуста</span>
+          </div>
+          <div class="modal_content_product_footer">
+            <button class="modal_content_product_footer_btn">
+              Продолжить закупки
+            </button>
+            <a href="/oplata/" class="modal_content_product_footer_btn red"
+              >Оформить заказ</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'menu/js/cart.js' %}"></script>
   </body>
 </html>

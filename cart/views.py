@@ -1,22 +1,13 @@
-from django.shortcuts import render
-
 # Create your views here.
-from django.views.generic import View
 from cart.cart import Cart
+from django.http.response import JsonResponse
 from menu.models import Product
-from django.http import HttpResponse
 
-class CartView(View):
-    def get(self, request):
-        return HttpResponse()
-    def post(self, request, id):
-        cart = Cart(request)
-        product = Product.objects.get(pk=id)
-        cart.add(product)
-        return HttpResponse()
 
-    def delete(self, request, id):
-        cart = Cart(request)
-        product = Product.objects.get(pk=id)
-        cart.remove(product)
-        return HttpResponse()
+def add_to_cart(request, product_id: int):
+    print(product_id)
+    cart = Cart(request)
+    product = Product.objects.get(pk=product_id)
+    print(product)
+    data = cart.add(product_id, product.name, price=product.price)
+    return JsonResponse(data)

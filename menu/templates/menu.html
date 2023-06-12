@@ -4,11 +4,13 @@
 <main class="content">
   <div class="cards">
     {% for product in products %}
-    <div class="card">
+    <div class="card" id="{{product.id}}">
       <div class="card-title">{{product.name}}</div>
       <img class="card-img" src="{{product.photo.url}}" />
       <div class="munu">
-        <button class="munu-bth">Добавить в корзину</button>
+        <button class="munu-bth" onclick="addToCart(this)"">
+          Добавить в корзину
+        </button>
         <button class="munu-bth">Подробнее</button>
       </div>
     </div>

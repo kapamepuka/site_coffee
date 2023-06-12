@@ -182,6 +182,7 @@ nav-footer a:hover{
     top:-20px;
 
     transition: background-color 0.3s linear;
+    cursor: pointer;
 }
 
 .munu-bth:hover{
