@@ -1,3 +1,32 @@
+body {
+    margin: 0;
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.container {
+    margin: 0px 300px;
+
+}
+
+
+.header-title{
+    color: #e9e1cd;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 1000;
+    font-size: 30px;
+
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    margin-top: 120px;
+}
+
+.header-title span {
+    color: #e9e1cd;
+}
+
 .subtitle{
     color: #B8860B;
     font-family: 'Lexend Deca', sans-serif;

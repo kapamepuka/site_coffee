@@ -13,7 +13,7 @@ button {
 }
 
 .header {
-    background-color: #221C1A;
+    background-color: url(http://127.0.0.1:8000/static/base/img/bg_head.jpg);
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,7 +29,7 @@ button {
     justify-content: space-around;
 }
 .content {
-    background-image: url(../img/bg.png);
+    background-image: url(../img/bg_base.jpg);
     min-height: 910px;
     background-repeat: no-repeat;
     background-size: cover;
