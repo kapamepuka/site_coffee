@@ -1,57 +1,42 @@
 {% extends "base.html" %} {% load static %} {% block head %}
 <title>ГЛАВНАЯ</title>
+<link rel="stylesheet" href="{% static 'main/css/index.css'%}" />
 {% endblock%} {% block content %}
 <main class="content">
-    <div class="header-down">
+  <div class="header-down">
+    <div class="header-title">
+      ВКУС АРОМАТ УЮТ
+      <div class="subtitle"><span>КОФЕ</span>ЙНЫЙ ДВОРИК</div>
 
-        <div class="header-title">
-            ВКУС АРОМАТ УЮТ
-            <div class="subtitle">
-                <span>КОФЕ</span>ЙНЫЙ ДВОРИК
-            </div>
-
-            <div class="description">
-                Наша кофейня – это место, где вы можете <br>расслабиться, встретиться с друзьями или поработать в <br>уютной
-                обстановке. Мы предлагаем своим гостям <br>уютные зоны отдыха, где можно насладиться <br>вкусом кофе и
-                приятной музыкой.
-            </div>
-            <div class="headerd-bth">
-                <a href="menu" class="header-button">СДЕЛАТЬ ЗАКАЗ</a>
-            </div>
-        </div>
-
-
+      <div class="description">
+        Наша кофейня – это место, где вы можете <br />расслабиться, встретиться
+        с друзьями или поработать в <br />уютной обстановке. Мы предлагаем своим
+        гостям <br />уютные зоны отдыха, где можно насладиться <br />вкусом кофе
+        и приятной музыкой.
+      </div>
+      <div class="headerd-bth">
+        <a href="menu" class="header-button">СДЕЛАТЬ ЗАКАЗ</a>
+      </div>
     </div>
-    <div class="cards">
+  </div>
+  <div class="cards">
+    <div class="cards-holder">
+      <div class="card">
+        <div class="card-title">ПЕКАРНЯ</div>
 
-        <div class="cards-holder">
-
-            <div class="card">
-
-                <div class="card-title">
-                    ПЕКАРНЯ
-                </div>
-
-                <div class="card-desc">
-                    Можно перекусить свежую выпечку,
-                    вкусные необычные десерты и
-                    выпить фирменный напиток
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card-title">
-                    КОФЕЙНЫЙ ДВОРИК
-                </div>
-
-                <div class="card-desc">
-                    Адрес: ул.Пушкина д. Калатушкина
-                </div>
-            </div>
+        <div class="card-desc">
+          Можно перекусить свежую выпечку, вкусные необычные десерты и выпить
+          фирменный напиток
         </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">КОФЕЙНЫЙ ДВОРИК</div>
+
+        <div class="card-desc">Адрес: ул.Пушкина д. Калатушкина</div>
+      </div>
     </div>
+  </div>
 </main>
 
 {% endblock%}
