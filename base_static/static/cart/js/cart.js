@@ -4,9 +4,9 @@ $(".cart-block").on("click", function () {
 $(".modal_btn").on("click", function () {
   $(".modal").removeClass("modal_active");
 });
-function on_basket(e) {
-  var $parent = $(e).parent();
-  $parent.remove();
+//function on_basket(e) {
+//  var $parent = $(e).parent();
+//  $parent.remove();
   //   var id = $parent.children().val();
   // $.ajax({
   //   url: "/cart/",
@@ -31,7 +31,7 @@ function on_basket(e) {
   //   } else {
   //     $now.text(`В корзине ${qt} товаров`);
   //   }
-}
+//}
 function addToCart(e) {
   $parent = $(e).parent().parent();
   let id = $parent.attr("id");
@@ -40,4 +40,17 @@ function addToCart(e) {
     type: "GET",
   });
   $(".modal").addClass("modal_active");
+}
+
+function deleteItem(e) {
+  $parent = $(e).parent();
+  let id = $parent.attr("id");
+  $parent.remove();
+
+
+  $.ajax({
+    url: `/cart/delete/${id}`,
+    type: "GET",
+  });
+
 }

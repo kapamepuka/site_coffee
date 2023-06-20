@@ -21,9 +21,7 @@
       rel="stylesheet"
     />
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
+      src="{% static 'base/js/jquery.min.js' %}"
     ></script>
     {% block head %} {% endblock%}
     <title>МЕНЮ</title>
@@ -98,8 +96,9 @@
               <i class="fa fa-info-circle"></i>
               &nbsp;&nbsp;Товар Проставки 7-297 добавлен в вашу корзину!
             </div> -->
+
           {% for item in cart %}
-          <div class="modal_content_product">
+          <div id= "{{ item.id }}" class="modal_content_product">
             <div class="modal_content_product_wrap">
               <img
                 src="{{ item.photo_url }}"
@@ -128,7 +127,7 @@
                 +
               </button>
             </div>
-            <p class="modal_content_product_price">1000 ₽</p>
+            <p class="modal_content_product_price">{{ item.total_price }}</p>
             <input id="spacer_id" type="hidden" name="id" value="{{item.id}}" />
             <input
               id="spacer_price"
@@ -138,7 +137,7 @@
             />
             <button
               class="modal_content_product_backet"
-              onclick="on_basket(this)"
+              onclick="deleteItem(this)"
             >
               <img
                 src="{% static 'base/img/trash.svg' %}"
@@ -148,14 +147,19 @@
             </button>
           </div>
           {% endfor %}
+          {% with totail_items=cart|length %}
+            {% if cart|length > 0 %}
           <div class="modal_content_product_text">
             <span class="modal_content_product_text_link"
               >В корзине <b>{{cart|length}}</b> товаров
             </span>
           </div>
+          {% else %}
           <div class="modal_content_product_text">
             <span class="modal_content_product_text_link">Корзина пуста</span>
           </div>
+           {% endif %}
+            {% endwith %}
           <div class="modal_content_product_footer">
             <button class="modal_content_product_footer_btn">
               Продолжить закупки
@@ -164,6 +168,7 @@
               >Оформить заказ</a
             >
           </div>
+
         </div>
       </div>
     </div>

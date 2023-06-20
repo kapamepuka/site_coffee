@@ -25,35 +25,38 @@ class Cart(object):
             "id": product_id,
             "name": name,
             "price": price,
-            "quantity": quantity,
+            "quantity": 0,
         }
-        if product_id not in self.cart:
+        if product_id not in self.cart.keys():
+            print(product_id in self.cart.keys())
             self.cart[product_id] = data
+            print(self.cart.keys())
+            print([product_id])
         if update_quantity:
             self.cart[product_id]["quantity"] = quantity
         else:
             self.cart[product_id]["quantity"] += quantity
+            print(self.cart[product_id])
         self._save()
+        print("кол-во", quantity)
         return data
 
     def _save(self):
+        print(self.cart)
         # Обновление сессии cart
         self.session[settings.CART_SESSION_ID] = self.cart
         # Отметить сеанс как "измененный", чтобы убедиться, что он сохранен
         self.session.modified = True
 
-    # def remove(self, spacer=None, type=None, product_id=None):
-    #     """
-    #     Удаление товара из корзины.
-    #     """
-    #     if product_id:
-    #         del self.cart[product_id]
-    #         self.save()
-    #         return
-    #     product_id = str(spacer.id) + "_" + type
-    #     if product_id in self.cart:
-    #         del self.cart[product_id]
-    #         self.save()
+    def delete(self, product_id:str):
+        """
+        Удаление товара из корзины.
+        """
+        print(type(product_id))
+        print(self.cart)
+        if product_id in self.cart.keys():
+            del self.cart[product_id]
+            self._save()
 
     # def clear(self):
     #     # удаление корзины из сессии
@@ -68,11 +71,8 @@ class Cart(object):
     #         Decimal(item["price"]) * item["quantity"] for item in self.cart.values()
     #     )
 
-    # def __len__(self):
-    #     """
-    #     Подсчет всех товаров в корзине.
-    #     """
-    #     return sum(item["quantity"] for item in self.cart.values())
+    def __len__(self):
+        return sum(item["quantity"] for item in self.cart.values())
 
     def __iter__(self):
         """
