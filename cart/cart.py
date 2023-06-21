@@ -39,6 +39,9 @@ class Cart(object):
             print(self.cart[product_id])
         self._save()
         print("кол-во", quantity)
+        print("add:", product_id)
+        print(type(product_id))
+
         return data
 
     def _save(self):
@@ -48,7 +51,7 @@ class Cart(object):
         # Отметить сеанс как "измененный", чтобы убедиться, что он сохранен
         self.session.modified = True
 
-    def delete(self, product_id:str):
+    def delete(self, product_id:int):
         """
         Удаление товара из корзины.
         """
@@ -58,10 +61,10 @@ class Cart(object):
             del self.cart[product_id]
             self._save()
 
-    # def clear(self):
-    #     # удаление корзины из сессии
-    #     del self.session[settings.CART_SESSION_ID]
-    #     self.session.modified = True
+    def clear(self):
+         # удаление корзины из сессии
+        del self.session[settings.CART_SESSION_ID]
+        self.session.modified = True
 
     # def get_total_price(self):
     #     """

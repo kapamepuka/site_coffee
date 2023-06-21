@@ -50,7 +50,7 @@
   
   .modal_content {
     padding: 15px;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #221C1A;
   }
   
   
@@ -154,15 +154,18 @@
   .modal_content_product_footer {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #221C1A;
     padding-top: 20px;
   }
   
   .modal_content_product_footer_btn {
-    background-color: #fff;
-    border-color: #ccc;
-    border-radius: 6px;
-    border: 1px solid #e5e5e5;
+  background-color:#e9e1cd;
+    font-family: 'Lexend Deca', sans-serif;
+
+    font-size: 15px;
+    color: #221C1A;
+    border-radius: 5px;
+    border: 1px solid #e9e1cd;
     width: 176px;
     height: 34px;
     font-size: 15px;

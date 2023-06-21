@@ -54,3 +54,19 @@ function deleteItem(e) {
   });
 
 }
+
+function on_decrement(e) {
+
+}
+
+function on_increment(e) {
+    addToCart(e);
+    $parent = $(e).parent();
+    cout = $parent.children(".modal_content_product_menu_item");
+    cout_int = parseInt(cout.text());
+    cout.text(cout_int+1);
+}
+
+function modal_content_product_price(e) {
+
+}

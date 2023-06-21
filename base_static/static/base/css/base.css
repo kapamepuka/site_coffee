@@ -13,7 +13,7 @@ button {
 }
 
 .header {
-    background-color: url(http://127.0.0.1:8000/static/base/img/bg_head.jpg);
+    background-image: url(../img/bg_head.jpg);
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
@@ -181,4 +181,75 @@ nav-footer a:hover{
     flex-wrap: wrap;
     width: 800px;
     margin-left: 900px;
+}
+
+.cards-holder{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-desc{
+    color: #B8860B;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    text-align: justify;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.cards-description{
+    display: flex;
+}
+
+.modal_container{
+    background-color: #B8860B;
+    border: 1px solid #221C1A;
+}
+
+.modal_content_product{
+    background-color: #B8860B;
+    border-top: 1px solid #221C1A;
+    border: 1px solid #221C1A;
+    border-radius: 5px;
+}
+
+.modal_content_product_menu_btn{
+    color: #221C1A;
+    background-color:#e9e1cd;
+    width: 28px;
+    height: 30px;
+    border: 1px solid #221C1A;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.modal_content_product_menu_item{
+    background-color:#e9e1cd;
+    color: #221C1A;
+    border: 1px solid #221C1A;
+    border-radius: 5px;
+}
+
+.modal_content_product_backet{
+    background-color:#e9e1cd;
+    border: 1px solid #221C1A;
+    border-radius: 5px;
+    color: #e9e1cd;
+}
+
+.modal_content_product_footer_btn{
+
+}
+
+.modal_content_product_footer_btn red{
+    background-color:#e9e1cd;
+    font-family: 'Lexend Deca', sans-serif;
+    display-flex: center;
+    font-size: 15px;
+    color: #221C1A;
+    border-radius: 5px;
+    border: 1px solid #e9e1cd;
 }
