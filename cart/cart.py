@@ -28,12 +28,12 @@ class Cart(object):
             "quantity": 0,
         }
         if product_id not in self.cart.keys():
-            print(product_id in self.cart.keys())
             self.cart[product_id] = data
-            print(self.cart.keys())
-            print([product_id])
+            self._save()
         if update_quantity:
             self.cart[product_id]["quantity"] = quantity
+            self._save()
+            return None
         else:
             self.cart[product_id]["quantity"] += quantity
             print(self.cart[product_id])
@@ -61,6 +61,11 @@ class Cart(object):
             del self.cart[product_id]
             self._save()
 
+    def decrement(self, product_id: int):
+        product = self.cart.get(product_id)
+        if product is not None:
+            quantity = product["quantity"] - 1
+            self.add(product_id, "", 0, quantity, update_quantity=True)
     def clear(self):
          # удаление корзины из сессии
         del self.session[settings.CART_SESSION_ID]
