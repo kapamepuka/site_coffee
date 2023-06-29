@@ -38,6 +38,58 @@ function addToCart(e) {
   $.ajax({
     url: `/cart/add/${id}`,
     type: "GET",
+    success: function(data) {
+      console.log(data);
+      let $container = $(".modal_content");
+      $container.prepend(`<div id= "${data.id}" class="modal_content_product">
+      <div class="modal_content_product_wrap">
+        <img
+          src="${data.photo_url}"
+          alt=""
+          class="modal_content_product_wrap_img"
+        />
+      </div>
+      <div class="modal_content_product_descr">
+        <b>${data.name}</b>
+        <br />
+      </div>
+      <div class="modal_content_product_menu">
+        <button
+          class="modal_content_product_menu_btn"
+          onclick="on_decrement(this)"
+        >
+          -
+        </button>
+        <div class="modal_content_product_menu_item">
+        ${data.quantity}
+        </div>
+        <button
+          class="modal_content_product_menu_btn"
+          onclick="on_increment(this)"
+        >
+          +
+        </button>
+      </div>
+      <p class="modal_content_product_price">{{ item.total_price }}</p>
+      <input id="spacer_id" type="hidden" name="id" value="${data.id}" />
+      <input
+        id="spacer_price"
+        type="hidden"
+        name="price"
+        value="${data.price}"
+      />
+      <button
+        class="modal_content_product_backet"
+        onclick="deleteItem(this)"
+      >
+        <img
+          src="{% static 'base/img/trash.svg' %}"
+          alt="trash"
+          class="modal_content_product_backet_img"
+        />
+      </button>
+    </div>`);
+    },
   });
   $(".modal").addClass("modal_active");
 }
@@ -56,7 +108,64 @@ function deleteItem(e) {
 }
 
 function on_decrement(e) {
-
+  $parent = $(e).parent().parent();
+  let id = $parent.attr("id");
+  $.ajax({
+    url: `/cart/decrement/${id}`,
+    type: "GET",
+  });
+  /*           <div id= "{{ item.id }}" class="modal_content_product">
+            <div class="modal_content_product_wrap">
+              <img
+                src="{{ item.photo_url }}"
+                alt=""
+                class="modal_content_product_wrap_img"
+              />
+            </div>
+            <div class="modal_content_product_descr">
+              <b>{{item.name}}</b>
+              <br />
+            </div>
+            <div class="modal_content_product_menu">
+              <button
+                class="modal_content_product_menu_btn"
+                onclick="on_decrement(this)"
+              >
+                -
+              </button>
+              <div class="modal_content_product_menu_item">
+                {{item.quantity}}
+              </div>
+              <button
+                class="modal_content_product_menu_btn"
+                onclick="on_increment(this)"
+              >
+                +
+              </button>
+            </div>
+            <p class="modal_content_product_price">{{ item.total_price }}</p>
+            <input id="spacer_id" type="hidden" name="id" value="{{item.id}}" />
+            <input
+              id="spacer_price"
+              type="hidden"
+              name="price"
+              value="{{item.price}}"
+            />
+            <button
+              class="modal_content_product_backet"
+              onclick="deleteItem(this)"
+            >
+              <img
+                src="{% static 'base/img/trash.svg' %}"
+                alt="trash"
+                class="modal_content_product_backet_img"
+              />
+            </button>
+          </div> */
+  $parent2 = $(e).parent();
+  cout = $parent2.children(".modal_content_product_menu_item");
+  cout_int = parseInt(cout.text());
+  cout.text(cout_int-1);
 }
 
 function on_increment(e) {
