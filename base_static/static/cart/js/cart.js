@@ -39,6 +39,7 @@ function addToCart(e) {
     url: `/cart/add/${id}`,
     type: "GET",
     success: function(data) {
+    if (!data.exist) {
       console.log(data);
       let $container = $(".modal_content");
       $container.prepend(`<div id= "${data.id}" class="modal_content_product">
@@ -70,7 +71,7 @@ function addToCart(e) {
           +
         </button>
       </div>
-      <p class="modal_content_product_price">{{ item.total_price }}</p>
+      <p class="modal_content_product_price">${data.price}</p>
       <input id="spacer_id" type="hidden" name="id" value="${data.id}" />
       <input
         id="spacer_price"
@@ -89,10 +90,19 @@ function addToCart(e) {
         />
       </button>
     </div>`);
-    },
+    }else{
+    const price = $(e).children(".modal_content_product_price").text())
+    price = parseInt(price)
+    }},
   });
   $(".modal").addClass("modal_active");
 }
+
+//if (условие) {
+//если условие тру, то код исполняется внутри скобок
+//} else {
+//этот код исполняется если условие фолс
+//}
 
 function deleteItem(e) {
   $parent = $(e).parent();

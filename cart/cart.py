@@ -26,23 +26,29 @@ class Cart(object):
             "name": name,
             "price": price,
             "quantity": 0,
+            "exist": False,
         }
         if product_id not in self.cart.keys():
             self.cart[product_id] = data
+            self.cart[product_id]["quantity"] += quantity
+            data["quantity"] = quantity
             self._save()
+            return data
+        data["exist"] = True
+
         if update_quantity:
             self.cart[product_id]["quantity"] = quantity
-            self._save()
-            return None
         else:
             self.cart[product_id]["quantity"] += quantity
+            data["quantity"] = quantity
             print(self.cart[product_id])
         self._save()
+        return data
         print("кол-во", quantity)
         print("add:", product_id)
         print(type(product_id))
 
-        return data
+
 
     def _save(self):
         print(self.cart)
